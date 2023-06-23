@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrganizerApp.Entities
 {
-    [Table("Users")]
-    public class Users
+    [Table("User")]
+    public class User
     {
         [Key]
         public int Id { get; set; }

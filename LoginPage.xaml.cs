@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OrganizerApp.UserMenagment;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace OrganizerApp
 {
@@ -20,16 +8,32 @@ namespace OrganizerApp
 
         public LoginPage()
         {
-            InitializeComponent();  
+            InitializeComponent();
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string userEmail = txtEmail.Text;
             string userPassword = txtPassword.Password;
+
+            var ob = new UserManagement();
+
+            if (ob.IsAccountExist(userEmail, userPassword))
+            {
+                MessageBox.Show("Zalogowano poprawnie.");
+                MainWindow aplication = new MainWindow();
+                aplication.Show();
+                Close();
+            }
+            else
+                MessageBox.Show("Nie zalogowano");
+
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
+            RegisterPage registerPage = new RegisterPage();
+            registerPage.Show();
+            Close();
         }
     }
 }

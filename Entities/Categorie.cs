@@ -6,29 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
-namespace OrganizerApp.Entites
+namespace OrganizerApp.Entities
 {
-    [Table("Tasks")]
-    public class Tasks
+    [Table("Categorie")]
+    public class Categorie
     {
         [Key]
         public int Id { get; set; }
 
-        public int UserId { get; set; }
-
         [Required]
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         [Required]
         public string Description { get; set; }
-
-        [Required]
-        public string Priority { get; set; }
-
-        [Required]
-        public bool IsCompleted { get; set; }
     }
-}
-*/
+}*/
